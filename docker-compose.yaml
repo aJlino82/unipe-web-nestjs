@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./src/db/db.sql
+    environment:
+      POSTGRES_DB: "unipe-dev-web-2023"
+      POSTGRES_USER: "xuxinha"
+      POSTGRES_PASSWORD: "xuxinhaEnena"
+    ports:
+      - "5432:5432"

@@ -1,0 +1,20 @@
+{
+  "editor.suggestSelection": "first",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // JavaScript
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  // JSON
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  // JSON C
+  "[jsonc]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  // HTML
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  // Markdown
+  "[markdown]": { "editor.defaultFormatter": "yzhang.markdown-all-in-one" }
+}
