@@ -18,7 +18,15 @@ export class User {
   birthDate?: Date;
 
   @OneToOne(() => Sector)
-  @JoinColumn()
+  @JoinColumn({ name: 'sectorId' })
   sector: Sector
+
+  toJSON(): any {
+    const { sector, ...rest } = this;
+    return {
+      ...rest,
+      sector: sector ? sector.toJSON() : null,
+    };
+  }
 
 }
