@@ -8,6 +8,7 @@ import {
   MinLength
 } from 'class-validator';
 import { Sector } from '../entities/sector.entity';
+import { Adress } from '../entities/adress.entity';
 
 const cpfRegex = /(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)/;
 
@@ -31,7 +32,6 @@ export class UserDTO {
   @IsDate()
   birthDate: Date;
 
-  sectorId: number;
-
   sector: Sector
+  adress: Adress
 }

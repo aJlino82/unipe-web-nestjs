@@ -6,10 +6,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Sector } from './entities/sector.entity';
 import { SectorController } from './controllers/sector.controller';
 import { SectorService } from './services/sector.service';
+import { AdressController } from './controllers/adress.controller';
+import { AdressService } from './services/adress.service';
+import { Adress } from './entities/adress.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Sector])],
-  controllers: [UserController, SectorController],
-  providers: [UserService, SectorService],
+  imports: [TypeOrmModule.forFeature([User, Sector, Adress])],
+  controllers: [UserController, SectorController, AdressController],
+  providers: [UserService, SectorService, AdressService],
 })
 export class ApiModule { }

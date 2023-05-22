@@ -13,7 +13,7 @@ export class UserService {
 
   async findAll(): Promise<any> {
     try {
-      const users = await this.userRepository.find({});
+      const users = await this.userRepository.find({ relations: { sector: true, adress: true } });
       return users;
     } catch (e) {
       console.log(e);

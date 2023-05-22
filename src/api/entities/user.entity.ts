@@ -1,5 +1,6 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Sector } from './sector.entity';
+import { Adress } from './adress.entity';
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
@@ -17,16 +18,10 @@ export class User {
   @Column({ name: 'birth_date', nullable: true })
   birthDate?: Date;
 
-  @OneToOne(() => Sector)
-  @JoinColumn({ name: 'sectorId' })
+  @ManyToOne(() => Sector, (sector) => sector.user)
   sector: Sector
 
-  toJSON(): any {
-    const { sector, ...rest } = this;
-    return {
-      ...rest,
-      sector: sector ? sector.toJSON() : null,
-    };
-  }
-
+  @OneToOne(() => Adress, (adress) => adress.user, { eager: true })
+  @JoinColumn()
+  adress: Adress
 }

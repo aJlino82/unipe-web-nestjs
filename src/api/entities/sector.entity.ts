@@ -1,4 +1,5 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from './user.entity';
 @Entity('sector')
 export class Sector {
 
@@ -11,9 +12,7 @@ export class Sector {
     @Column()
     description: string;
 
-    toJSON(): any {
-        const { id, name, description } = this;
-        return { id, name, description };
-    }
+    @OneToMany(() => User, (user) => user.sector)
+    user: User[];
 
 }
